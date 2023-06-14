@@ -4,8 +4,6 @@ const insertionSort = (arr) => {
     let j = i - 1;
 
     while (j >= 0 && arr[j] > current) {
-      console.log(`current: ${current}`);
-      console.log(`arr: ${arr}`);
       arr[j + 1] = arr[j];
       j--;
     }
