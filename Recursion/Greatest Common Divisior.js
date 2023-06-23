@@ -8,4 +8,3 @@ function gcd(n1, n2) {
 }
 
 console.log(gcd(8, 12));
-// gcd(32, 8) ➞ 8
