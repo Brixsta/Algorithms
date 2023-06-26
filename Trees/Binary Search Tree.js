@@ -11,7 +11,7 @@ class BinarySearchTree {
     } else {
       let current = this.root;
       while (true) {
-        if (value === current) return;
+        if (value === current.value) return;
         if (value < current.value) {
           if (current.left === null) {
             current.left = node;
@@ -28,6 +28,31 @@ class BinarySearchTree {
       }
     }
   }
+
+  find(value) {
+    if (!this.root) {
+      return false;
+    } else {
+      let current = this.root;
+      let found = false;
+      while (current && !found) {
+        if (value < current.value) {
+          current = current.left;
+        } else if (value > current.value) {
+          current = current.right;
+        } else {
+          found = true;
+        }
+      }
+      if (found) {
+        console.log(current);
+        return current;
+      } else {
+        console.log(`Sorry could not find ${value}!`);
+        return false;
+      }
+    }
+  }
 }
 
 class Node {
@@ -38,8 +63,10 @@ class Node {
   }
 }
 
-const tree = new BinarySearchTree();
-tree.insert(5);
-tree.insert(4);
-tree.insert(1);
-console.log(tree.root.left.left);
+const BST = new BinarySearchTree();
+BST.insert(5);
+BST.insert(1);
+BST.insert(4);
+BST.insert(3);
+BST.insert(8);
+BST.find(4);
