@@ -63,6 +63,10 @@ class Node {
   }
 }
 
+// equation to find parent: Math.floor((n-1)/2)
+// equation to find children: (n*2) +1 or +2
+// where n = the index
+
 const BST = new BinarySearchTree();
 BST.insert(5);
 BST.insert(1);
