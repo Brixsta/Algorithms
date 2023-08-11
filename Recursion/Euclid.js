@@ -1,12 +1,9 @@
-const euclid = (a, b) => {
-  while (a !== b) {
-    if (a > b) {
-      a = a - b;
-    } else {
-      b = b - a;
-    }
+function euclid(a, b) {
+  if (b === 0) {
+    return a;
   }
-  return a;
-};
 
-console.log(euclid(16, 40));
+  return euclid(b, a % b);
+}
+
+console.log(euclid(144, 11));
