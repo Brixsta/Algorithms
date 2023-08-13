@@ -1,19 +1,19 @@
-function fibonacci(num, memo) {
-  memo = memo || {};
-  if (num === 0 || num === 1) return num;
-  if (memo[num]) {
-    return memo[num];
-  } else {
-    return (memo[num] = fibonacci(num - 1, memo) + fibonacci(num - 2, memo));
+const isPrime = (num) => {
+  if (num === 0 || num === 1) return false;
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) return false;
   }
-}
+  return true;
+};
 
-// function fibonacci(num) {
-//   if (num === 0 || num === 1) return num;
+const sieve = (num) => {
+  const result = [];
+  while (num >= 2) {
+    if (isPrime(num)) result.push(num);
+    num--;
+  }
 
-//   return fibonacci(num - 1) + fibonacci(num - 2);
-// }
+  return result.sort();
+};
 
-console.log(fibonacci(50));
-
-// 0 1 1 2 3 5 8
+console.log(sieve(10));
