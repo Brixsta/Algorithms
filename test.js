@@ -1,36 +1,32 @@
-const cocktail = (arr) => {
-  let swapped;
-  let start = 0;
-  let end = arr.length - 1;
-
-  do {
-    swapped = false;
-    for (let i = start; i < end; i++) {
-      if (arr[i] > arr[i + 1]) {
-        sort(arr, i, i + 1);
-        swapped = true;
-      }
-    }
-    if (!swapped) {
-      break;
-    }
-    end--;
-
-    for (let i = end - 1; i >= start; i--) {
-      if (arr[i] > arr[i + 1]) {
-        sort(arr, i, i + 1);
-        swapped = true;
-      }
-    }
-    start++;
-  } while (swapped);
-  return arr;
+const twoSum = (arr, target) => {
+  let storage = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (storage[arr[i]] !== undefined) return [storage[arr[i]], arr[i]];
+    storage[target - arr[i]] = arr[i];
+  }
+  return -1;
 };
 
-function sort(arr, idx1, idx2) {
-  let temp = arr[idx1];
-  arr[idx1] = arr[idx2];
-  arr[idx2] = temp;
-}
+// const twoSum = (arr, target) => {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = i + 1; j < arr.length; j++) {
+//       const sum = arr[i] + arr[j];
+//       if (sum === target) {
+//         return [arr[i], arr[j]];
+//       }
+//     }
+//   }
+//   return -1;
+// };
 
-console.log(cocktail([5, 1, 4, 2, 3]));
+// const twoSum = (arr, target) => {
+//   for (let i = 0; i < arr.length; i++) {
+//     const numToFind = target - arr[i];
+//     if (arr.includes(numToFind) && arr.indexOf(numToFind) !== i) {
+//       return [arr[i], numToFind];
+//     }
+//   }
+//   return -1;
+// };
+
+console.log(twoSum([1, 2, 3, 4, 5], 3));
