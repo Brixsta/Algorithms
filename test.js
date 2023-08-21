@@ -5,15 +5,15 @@ const shellSort = (arr) => {
     interval = Math.floor(interval / 2)
   ) {
     for (let i = interval; i < arr.length; i++) {
-      let temp = arr[i];
+      let current = arr[i];
       let j;
-      for (j = i; j >= interval && arr[j - interval] > temp; j -= interval) {
+      for (j = i; j >= interval && arr[j - interval] > current; j -= interval) {
         arr[j] = arr[j - interval];
       }
-      arr[j] = temp;
+      arr[j] = current;
     }
   }
   return arr;
 };
 
-console.log(shellSort([5, 1, 4, 3, 2]));
+console.log(shellSort([201, 5, 4, 3, 2, 1, 200]));
