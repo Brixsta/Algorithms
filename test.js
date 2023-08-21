@@ -1,36 +1,19 @@
-const isSorted = (arr) => {
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] < arr[i - 1]) return false;
-  }
-  return true;
-};
-
-const shuffle = (arr) => {
-  let count = arr.length;
-  let temp;
-  let index;
-
-  while (count > 0) {
-    index = Math.floor(Math.random() * count);
-    count--;
-
-    temp = arr[index];
-    arr[index] = arr[count];
-    arr[count] = temp;
-  }
-
-  return arr;
-};
-
-const bogoSort = (arr) => {
-  if (isSorted(arr)) return arr;
-  let i = 1;
-  while (!isSorted(arr)) {
-    console.log(i);
-    arr = shuffle(arr);
-    i++;
+const shellSort = (arr) => {
+  for (
+    let interval = Math.floor(arr.length / 2);
+    interval > 0;
+    interval = Math.floor(interval / 2)
+  ) {
+    for (let i = interval; i < arr.length; i++) {
+      let temp = arr[i];
+      let j;
+      for (j = i; j >= interval && arr[j - interval] > temp; j -= interval) {
+        arr[j] = arr[j - interval];
+      }
+      arr[j] = temp;
+    }
   }
   return arr;
 };
 
-console.log(bogoSort([1, 5, 3, 2, 4, 1, 5, 3, 2, 4]));
+console.log(shellSort([5, 1, 4, 3, 2]));
