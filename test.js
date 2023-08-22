@@ -1,19 +1,27 @@
-const shellSort = (arr) => {
-  for (
-    let interval = Math.floor(arr.length / 2);
-    interval > 0;
-    interval = Math.floor(interval / 2)
-  ) {
-    for (let i = interval; i < arr.length; i++) {
-      let current = arr[i];
-      let j;
-      for (j = i; j >= interval && arr[j - interval] > current; j -= interval) {
-        arr[j] = arr[j - interval];
-      }
-      arr[j] = current;
+const caeser = (str, shift) => {
+  str = str.toLowerCase();
+  let alphabet = "abcdefghijklmnopqrstuvwxyz";
+  let result = "";
+  const map = {};
+
+  for (let i = 0; i < alphabet.length; i++) {
+    let char = alphabet[i];
+
+    map[char] = i + shift;
+    if (map[char] > 25) {
+      map[char] = map[char] - 26;
     }
   }
-  return arr;
-};
 
-console.log(shellSort([201, 5, 4, 3, 2, 1, 200]));
+  for (let i = 0; i < str.length; i++) {
+    let idx = map[str[i]];
+    if (str[i] !== " ") {
+      result += alphabet[idx];
+    } else {
+      result += " ";
+    }
+  }
+
+  return result;
+};
+console.log(caeser("SERR PBQR PNZC", 13)); //should decode to "FREE CODE CAMP"

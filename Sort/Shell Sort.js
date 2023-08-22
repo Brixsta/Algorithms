@@ -7,7 +7,11 @@ const shellSort = (arr) => {
     for (let i = interval; i < arr.length; i++) {
       let current = arr[i];
       let j;
-      for (j = i; j >= interval && arr[j - interval] > current; j -= interval) {
+      for (
+        let j = i;
+        j >= interval && arr[j - interval] > current;
+        j -= interval
+      ) {
         arr[j] = arr[j - interval];
       }
       arr[j] = current;
