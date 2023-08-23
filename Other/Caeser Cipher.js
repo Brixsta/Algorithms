@@ -9,6 +9,8 @@ const caeser = (str, shift) => {
     map[char] = i + shift;
     if (map[char] > 25) {
       map[char] = map[char] - 26;
+    } else if (map[char] < 0) {
+      map[char] = map[char] + 26;
     }
   }
 
