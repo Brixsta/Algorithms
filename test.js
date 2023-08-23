@@ -1,27 +1,30 @@
-const caeser = (str, shift) => {
-  str = str.toLowerCase();
-  let alphabet = "abcdefghijklmnopqrstuvwxyz";
-  let result = "";
-  const map = {};
+// const kadanes = (arr, sub) => {
+//   let max = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     let sum = 0;
 
-  for (let i = 0; i < alphabet.length; i++) {
-    let char = alphabet[i];
+//     for (let j = i; j < i + sub; j++) {
+//       if (i + sub > arr.length) {
+//         break;
+//       }
+//       sum += arr[j];
+//       max = Math.max(sum, max);
+//     }
+//   }
+//   return max;
+// };
 
-    map[char] = i + shift;
-    if (map[char] > 25) {
-      map[char] = map[char] - 26;
-    }
-  }
+// function kadanes(arr, size) {
+//   let sum = arr.slice(0, size).reduce((a, c) => (a += c));
+//   let max = sum;
+//   for (let i = size; i < arr.length; i++) {
+//     let prev = arr[i - size];
+//     let curr = arr[i];
+//     sum += curr;
+//     sum -= prev;
+//     max = Math.max(max, sum);
+//   }
+//   return max;
+// }
 
-  for (let i = 0; i < str.length; i++) {
-    let idx = map[str[i]];
-    if (str[i] !== " ") {
-      result += alphabet[idx];
-    } else {
-      result += " ";
-    }
-  }
-
-  return result;
-};
-console.log(caeser("SERR PBQR PNZC", 13)); //should decode to "FREE CODE CAMP"
+console.log(kadanes([91, 13, 24, 12, -1, 7, 24, 110], 3));
