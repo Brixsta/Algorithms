@@ -1,30 +1,11 @@
-// const kadanes = (arr, sub) => {
-//   let max = 0;
-//   for (let i = 0; i < arr.length; i++) {
-//     let sum = 0;
+const kadanes = (nums) => {
+  let max = nums[0];
+  let sum = max;
+  for (let i = 1; i < nums.length; i++) {
+    sum = Math.max(nums[i], sum + nums[i]);
+    max = Math.max(max, sum);
+  }
+  return max;
+};
 
-//     for (let j = i; j < i + sub; j++) {
-//       if (i + sub > arr.length) {
-//         break;
-//       }
-//       sum += arr[j];
-//       max = Math.max(sum, max);
-//     }
-//   }
-//   return max;
-// };
-
-// function kadanes(arr, size) {
-//   let sum = arr.slice(0, size).reduce((a, c) => (a += c));
-//   let max = sum;
-//   for (let i = size; i < arr.length; i++) {
-//     let prev = arr[i - size];
-//     let curr = arr[i];
-//     sum += curr;
-//     sum -= prev;
-//     max = Math.max(max, sum);
-//   }
-//   return max;
-// }
-
-console.log(kadanes([91, 13, 24, 12, -1, 7, 24, 110], 3));
+console.log(kadanes([1, 0, -3, 4, 2, 5, -1, -6, 4]));
