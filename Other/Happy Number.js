@@ -1,10 +1,7 @@
 const happyNumber = (num) => {
   let set = new Set();
   while (true) {
-    if (num === 1) {
-      return true;
-    }
-    console.log(num);
+    if (num === 1) return true;
     num = num
       .toString()
       .split("")
