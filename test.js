@@ -1,27 +1,30 @@
-const happyNumber = (num) => {
-  let set = new Set();
-  while (true) {
-    if (num === 1) {
-      return true;
-    }
-    console.log(num);
-    num = num
-      .toString()
-      .split("")
-      .map((i) => Number(i) ** 2)
-      .reduce((a, c) => (a += c));
-    if (set.has(num)) return false;
-    set.add(num);
+const bogoSort = (arr) => {
+  let count = 1;
+  while (!isSorted(arr)) {
+    console.log(count);
+    arr = shuffle(arr);
+    count++;
   }
+
+  return arr;
 };
 
-console.log(happyNumber(19));
+function isSorted(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < arr[i - 1]) return false;
+  }
+  return true;
+}
 
-// Input: n = 19
-// Output: True
-// 19 is Happy Number,
-// 1^2 + 9^2 = 82
-// 8^2 + 2^2 = 68
-// 6^2 + 8^2 = 100
-// 1^2 + 0^2 + 0^2 = 1
-// As we reached to 1, 19 is a Happy Number.
+function shuffle(arr) {
+  let index = arr.length;
+  let rand;
+  while (index > 0) {
+    rand = Math.floor(Math.random() * index);
+    index--;
+    [arr[rand], arr[index]] = [arr[index], arr[rand]];
+  }
+  return arr;
+}
+
+console.log(bogoSort([2, 1, 3, 92, 32, 13, 5, 2, 3, 5, 223, 112]));
