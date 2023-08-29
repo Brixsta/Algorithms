@@ -1,26 +1,19 @@
-// LEETCODE 287
-var findDuplicate = function (nums) {
-  let init = 0;
-  let slow = 0;
-  let fast = 0;
-
-  while (1) {
-    fast = nums[nums[fast]];
-    slow = nums[slow];
-    if (fast === slow) break;
+var rotate = function (nums, k) {
+  k %= nums.length;
+  if (nums.length === 1) return nums;
+  const dupe = [...nums];
+  for (let i = 0; i < nums.length; i++) {
+    let idx = i + k;
+    if (idx > dupe.length - 1) idx -= dupe.length;
+    nums[idx] = dupe[i];
   }
-
-  while (1) {
-    console.log(init, slow);
-    init = nums[init];
-    slow = nums[slow];
-    if (init === slow) break;
-  }
-
-  // slow: 3
-  // init: 3
-  return slow;
+  return nums;
 };
-//floyds cyc
+console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3));
 
-console.log(findDuplicate([1, 4, 4, 3, 2]));
+// // Input: nums = [1,2,3,4,5,6,7], k = 3
+// // Output: [5,6,7,1,2,3,4]
+// // Explanation:
+// // rotate 1 steps to the right: [7,1,2,3,4,5,6]
+// // rotate 2 steps to the right: [6,7,1,2,3,4,5]
+// // rotate 3 steps to the right: [5,6,7,1,2,3,4]
