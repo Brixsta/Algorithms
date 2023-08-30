@@ -1,19 +1,20 @@
-var rotate = function (nums, k) {
-  k %= nums.length;
-  if (nums.length === 1) return nums;
-  const dupe = [...nums];
-  for (let i = 0; i < nums.length; i++) {
-    let idx = i + k;
-    if (idx > dupe.length - 1) idx -= dupe.length;
-    nums[idx] = dupe[i];
+var majorityElement = function (nums) {
+  let freq = 1;
+  let maxNum = nums[0];
+  let test = Math.floor(nums.length / 2) + 1;
+  nums = nums.sort();
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] === nums[i - 1]) {
+      freq++;
+      if (freq === test) return nums[i];
+    } else {
+      freq = 1;
+    }
   }
-  return nums;
+  return maxNum;
 };
-console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3));
 
-// // Input: nums = [1,2,3,4,5,6,7], k = 3
-// // Output: [5,6,7,1,2,3,4]
-// // Explanation:
-// // rotate 1 steps to the right: [7,1,2,3,4,5,6]
-// // rotate 2 steps to the right: [6,7,1,2,3,4,5]
-// // rotate 3 steps to the right: [5,6,7,1,2,3,4]
+console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
+
+// Input: nums = [2,2,1,1,1,2,2]
+// Output: 2
