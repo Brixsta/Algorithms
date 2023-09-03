@@ -1,5 +1,5 @@
 var largestNumber = function (nums) {
-  if (nums.every((i) => i === 0)) return 0;
+  if (nums.every((i) => i === 0)) return "0";
   nums = nums.map((i) => i.toString()).sort(compare);
   return nums.join("");
 };
