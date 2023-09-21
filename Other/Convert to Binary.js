@@ -1,4 +1,4 @@
-const numberToBinary = (num) => {
+function convertToBinary(num) {
   let i = 1;
   let rem;
   let result = 0;
@@ -9,8 +9,7 @@ const numberToBinary = (num) => {
     i *= 10;
     num = Math.floor(num / 2);
   }
-
   return result;
-};
+}
 
-console.log(numberToBinary(255));
+console.log(convertToBinary(2));

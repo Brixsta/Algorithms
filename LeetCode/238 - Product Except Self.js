@@ -1,19 +1,16 @@
 var productExceptSelf = function (nums) {
-  const zeros = nums.filter((i) => i === 0).length;
-  if (zeros === nums.length) return nums;
-
-  const product = nums.reduce((a, c) => a * c);
-  let withoutZero = nums.filter((i) => i !== 0).reduce((a, c) => a * c);
-
-  const result = nums.map((i) => {
-    if (i !== 0) {
-      return product / i;
-    } else if (zeros === 1) {
-      return withoutZero / 1;
-    } else {
-      return 0;
-    }
-  });
+  const result = new Array(nums.length);
+  let prefix = 1;
+  for (let i = 0; i < nums.length; i++) {
+    result[i] = prefix;
+    prefix *= nums[i];
+  }
+  let postfix = 1;
+  for (let i = nums.length - 1; i >= 0; i--) {
+    result[i] *= postfix;
+    postfix *= nums[i];
+  }
   return result;
 };
+
 console.log(productExceptSelf([1, 0, 3, 2]));
