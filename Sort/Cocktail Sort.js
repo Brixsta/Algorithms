@@ -7,7 +7,7 @@ const cocktail = (arr) => {
     swapped = false;
     for (let i = start; i < end; i++) {
       if (arr[i] > arr[i + 1]) {
-        sort(arr, i, i + 1);
+        swap(arr, i, i + 1);
         swapped = true;
       }
     }
@@ -18,7 +18,7 @@ const cocktail = (arr) => {
 
     for (let i = end - 1; i >= start; i--) {
       if (arr[i] > arr[i + 1]) {
-        sort(arr, i, i + 1);
+        swap(arr, i, i + 1);
         swapped = true;
       }
     }
@@ -27,7 +27,7 @@ const cocktail = (arr) => {
   return arr;
 };
 
-function sort(arr, idx1, idx2) {
+function swap(arr, idx1, idx2) {
   let temp = arr[idx1];
   arr[idx1] = arr[idx2];
   arr[idx2] = temp;
