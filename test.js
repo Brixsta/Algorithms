@@ -14,5 +14,3 @@ const numberToBinary = (num) => {
 };
 
 console.log(numberToBinary(255));
-
-console.log("test");
