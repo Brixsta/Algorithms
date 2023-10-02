@@ -14,7 +14,4 @@ const numberToBinary = (num) => {
 };
 
 console.log(numberToBinary(255));
-<<<<<<< HEAD
-=======
 console.log("WOAH");
->>>>>>> parent of c007bab (im going to revert this)
