@@ -14,8 +14,3 @@ const numberToBinary = (num) => {
 };
 
 console.log(numberToBinary(255));
-<<<<<<< HEAD
-
-console.log("HELLO IM GOING TO REVERT THIS");
-=======
->>>>>>> parent of 75acc3f (adding batman)
