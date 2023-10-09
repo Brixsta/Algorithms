@@ -1,3 +1,3 @@
 # Algorithms
 
-- Coding Algorithms for DSA
+- Coding Algos for DSA
