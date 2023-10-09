@@ -13,4 +13,4 @@ const numberToBinary = (num) => {
   return result;
 };
 
-console.log(numberToBinary(255));
+console.log(numberToBinary(100));
