@@ -1,16 +1,16 @@
-const numberToBinary = (num) => {
-  let i = 1;
-  let rem;
-  let result = 0;
+const insertionSort = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    let j = i;
 
-  while (num > 0) {
-    rem = num % 2;
-    result += rem * i;
-    i *= 10;
-    num = Math.floor(num / 2);
+    while (j - 1 >= 0 && arr[j] < arr[j - 1]) {
+      let temp = arr[j];
+      arr[j] = arr[j - 1];
+      arr[j - 1] = temp;
+      j--;
+    }
   }
 
-  return result;
+  return arr;
 };
 
-console.log(numberToBinary(999));
+console.log(insertionSort([4, 9, 3, 2, 4]));
