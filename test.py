@@ -1,21 +1,24 @@
-def binary_search(array, target):
-  start = 0
-  end = len(array) - 1
+def partition(numbers, i, k):
+    midpoint = i + (k - i) // 2
+    pivot = numbers[midpoint]
 
-  while(start <= end):
-    print('searching')
-    mid = (start + end) // 2
-    if(array[mid] == target):
-      print(f'Found {target} on index {mid}')
-      return
-    elif(array[mid] < target):
-      start = mid + 1
-    elif(array[mid] > target):
-      end = mid - 1
-  
-  print(f'Sorry could not find {target}')
-    
+    done = False
+    l = i
+    h = k
+    while not done:
+        while numbers[l] < pivot:
+            l = l + 1
+        while pivot < numbers[h]:
+            h = h - 1
+            
+        if l >= h:
+            done = True
+        else:
+            temp = numbers[l]
+            numbers[l] = numbers[h]
+            numbers[h] = temp
+            l = l + 1
+            h = h - 1
+    return h
 
-
-
-binary_search([1,2,3,4,5, 6, 7, 8], 8)
+print(partition([5,4,7,41,9,6,8], 0, 5))

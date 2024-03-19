@@ -1,16 +1,25 @@
-const insertionSort = (arr) => {
-  for (let i = 0; i < arr.length; i++) {
-    let j = i;
+// PIVOT FUNCTION
 
-    while (j - 1 >= 0 && arr[j] < arr[j - 1]) {
-      let temp = arr[j];
-      arr[j] = arr[j - 1];
-      arr[j - 1] = temp;
-      j--;
+// [1, 3, 5, 9, 6]
+
+function pivotFunc(arr, i, k) {
+  let pivot = arr[i];
+  let swapIdx = 0;
+
+  for (let x = 1; x <= k; x++) {
+    if (arr[x] <= pivot) {
+      swapIdx++;
+      let temp = arr[x];
+      arr[x] = arr[swapIdx];
+      arr[swapIdx] = temp;
     }
   }
 
-  return arr;
-};
+  let temp = arr[i];
+  arr[i] = arr[swapIdx];
+  arr[swapIdx] = temp;
 
-console.log(insertionSort([4, 9, 3, 2, 4]));
+  return arr[swapIdx];
+}
+
+console.log(pivotFunc([6, 5, 4, 2, 9], 0, 4));
