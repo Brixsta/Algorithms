@@ -1,6 +1,16 @@
+///////////////////////// HELPER FUNCTIONS /////////////////////
 const maxDigit = (num) => {
   return Math.floor(Math.log10(num)) + 1;
 };
+
+const createBuckets = () => {
+  let buckets = [];
+  for (let i = 0; i < 10; i++) {
+    buckets[i] = [];
+  }
+  return buckets;
+};
+///////////////////////////////////////////////////////////////
 
 const radixSort = (arr) => {
   let max = -Infinity;
@@ -22,20 +32,10 @@ const radixSort = (arr) => {
     }
     pow10 *= 10;
     arr = buckets.flat();
-    if (i == 0) return buckets;
     // clear out buckets, and renew
     buckets = createBuckets();
   }
-
   return arr;
-};
-
-const createBuckets = () => {
-  let buckets = [];
-  for (let i = 0; i < 10; i++) {
-    buckets[i] = [];
-  }
-  return buckets;
 };
 
 console.log(radixSort([5111, 4, 13, 5, 1111]));
