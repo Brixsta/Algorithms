@@ -1,3 +1,5 @@
+// breadth first search
+
 const graph = {
   A: ["B", "D"],
   B: ["A", "C", "E"],
@@ -7,30 +9,26 @@ const graph = {
   F: ["E"],
 };
 
-const DFS = (graph, root) => {
-  const stack = [root];
+function bfs(graph, start) {
+  const queue = [start];
   const visited = new Set();
   const result = [];
 
-  while (stack.length) {
-    const vertex = stack.pop();
+  while (queue.length) {
+    const vertex = queue.shift();
 
     if (!visited.has(vertex)) {
-      console.log(vertex);
       visited.add(vertex);
       result.push(vertex);
 
       for (let i = 0; i < graph[vertex].length; i++) {
         let neighbor = graph[vertex][i];
-
-        stack.push(neighbor);
+        queue.push(neighbor);
       }
     }
   }
 
   return result;
-};
+}
 
-console.log(DFS(graph, "A"));
-
-// RESULT -> [ 'A', 'D', 'E', 'F', 'B', 'C' ]0
+console.log(bfs(graph, "A"));

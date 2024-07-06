@@ -9,14 +9,13 @@ const graph = {
 
 const DFS = (graph, root) => {
   const stack = [root];
-  const visited = new Set();
   const result = [];
+  const visited = new Set();
 
   while (stack.length) {
     const vertex = stack.pop();
 
     if (!visited.has(vertex)) {
-      console.log(vertex);
       visited.add(vertex);
       result.push(vertex);
 
@@ -27,10 +26,5 @@ const DFS = (graph, root) => {
       }
     }
   }
-
   return result;
 };
-
-console.log(DFS(graph, "A"));
-
-// RESULT -> [ 'A', 'D', 'E', 'F', 'B', 'C' ]0

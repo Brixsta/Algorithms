@@ -54,10 +54,14 @@ class MaxBinaryHeap {
 
 const MBH = new MaxBinaryHeap();
 MBH.insert(5);
-MBH.insert(11);
 MBH.insert(19);
 MBH.insert(44);
-MBH.insert(109);
-MBH.insert(1);
-MBH.extractMax();
-MBH.extractMax();
+MBH.insert(11);
+MBH.insert(13);
+MBH.insert(12);
+
+console.log(MBH.items);
+
+// find parent node Math.floor((idx - 1) / 2)
+// left child node (idx * 2) + 1
+// right child node (idx * 2) + 2

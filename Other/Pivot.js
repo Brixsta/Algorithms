@@ -25,10 +25,10 @@ const pivotFunc = (arr, i, k) => {
       r--;
     }
   }
-  return l;
+  return r;
 };
 
-console.log(pivotFunc([5, 1, 6, 4, 2], 0, 4));
+console.log(pivotFunc([5, 1, 9, 4, 2], 0, 4));
 
 // const pivot = (arr, start = 0, end = arr.length - 1) => {
 //   let pivotIdx = arr[start];

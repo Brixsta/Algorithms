@@ -33,4 +33,4 @@ const bogoSort = (arr) => {
   return arr;
 };
 
-console.log(bogoSort([1, 5, 3, 2, 4]));
+console.log(bogoSort([5, 34, 32, 4, 3, 12, 22, 90, 23]));
