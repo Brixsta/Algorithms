@@ -1,19 +1,15 @@
-class Node {
-  constructor(val) {
-    this.next = null;
-    this.val = val;
+const toBinary = (num) => {
+  let i = 1;
+  let rem;
+  let result = 0;
+  while (num > 0) {
+    rem = num % 2;
+    result += rem * i;
+    i *= 10;
+    num = Math.floor(num / 2);
   }
-}
 
-const myNode = new Node(11);
-const myNode1 = new Node(121);
-const myNode2 = new Node(22);
+  console.log(result);
+};
 
-myNode.next = myNode1;
-myNode1.next = myNode2;
-
-let head = myNode;
-while (head) {
-  console.log(head.val);
-  head = head.next;
-}
+toBinary(255);
