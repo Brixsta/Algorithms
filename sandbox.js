@@ -1,15 +1,15 @@
-const toBinary = (num) => {
-  let i = 1;
-  let rem;
-  let result = 0;
-  while (num > 0) {
-    rem = num % 2;
-    result += rem * i;
-    i *= 10;
-    num = Math.floor(num / 2);
+const test = () => {
+  const stack = [];
+  const nums = [1, 4, 2, 39, 23, 11, 50];
+
+  // fill stack
+  for (let i = 0; i < nums.length; i++) {
+    stack.push(nums[i]);
   }
 
-  console.log(result);
+  while (stack.length) {
+    console.log(stack.pop());
+  }
 };
 
-toBinary(255);
+test();
