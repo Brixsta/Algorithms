@@ -1,23 +1,23 @@
-var removeKdigits = function (num, k) {
-  let stack = [];
+var numberOfWeakCharacters = function (properties) {
+  const stack = [];
 
-  for (let i = 0; i < num.length; i++) {
-    let curr = Number(num[i]);
-    console.log(curr, stack);
-    if (curr < Number(stack[stack.length - 1]) && k > 0) {
-      k--;
-      stack.pop();
-      stack.push(num[i]);
-    } else {
-      stack.push(num[i]);
+  for (let i = 0; i < properties.length; i++) {
+    let atk = properties[i][0];
+    let def = properties[i][1];
+
+    if (!stack.length) stack.push([atk, def]);
+
+    if (
+      stack.length &&
+      atk > stack[stack.length - 1][0] &&
+      def > stack[stack.length - 1][1]
+    ) {
+      console.log("HERE", atk, def);
+      stack.push([atk, def]);
     }
   }
-  if (num.length === 1) return "0";
-
-  console.log(Number(stack.join("")).toString(), k);
-  return Number(stack.join("")).toString();
+  console.log(stack);
+  return stack.length;
 };
 
-removeKdigits("112", 1);
-
-// "11"
+numberOfWeakCharacters("[[5,5],[6,3],[3,6]]");
